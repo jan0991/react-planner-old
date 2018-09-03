@@ -15,6 +15,7 @@ import {
 } from './components/export';
 import {VERSION} from './version';
 import './styles/export';
+import {loadProject} from "./actions/project-actions";
 
 const {Toolbar} = ToolbarComponents;
 const {Sidebar} = SidebarComponents;
@@ -41,7 +42,8 @@ class ReactPlanner extends Component {
 
   componentWillMount() {
     let {store} = this.context;
-    let {projectActions, catalog, stateExtractor, plugins} = this.props;
+    let {projectActions, catalog, stateExtractor, plugins, apiData} = this.props;
+    store.dispatch(loadProject(apiData))
     plugins.forEach(plugin => plugin(store, stateExtractor));
     projectActions.initCatalog(catalog);
   }

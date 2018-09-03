@@ -22,6 +22,7 @@ import { objectsMap } from './utils/objects-utils';
 import { ToolbarComponents, Content, SidebarComponents, FooterBarComponents } from './components/export';
 import { VERSION } from './version';
 import './styles/export';
+import { loadProject } from "./actions/project-actions";
 
 var Toolbar = ToolbarComponents.Toolbar;
 var Sidebar = SidebarComponents.Sidebar;
@@ -66,8 +67,10 @@ var ReactPlanner = function (_Component) {
           projectActions = _props.projectActions,
           catalog = _props.catalog,
           stateExtractor = _props.stateExtractor,
-          plugins = _props.plugins;
+          plugins = _props.plugins,
+          apiData = _props.apiData;
 
+      store.dispatch(loadProject(apiData));
       plugins.forEach(function (plugin) {
         return plugin(store, stateExtractor);
       });
