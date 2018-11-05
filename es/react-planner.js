@@ -93,6 +93,8 @@ var ReactPlanner = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      console.log(54, this.props);
+
       var _props2 = this.props,
           width = _props2.width,
           height = _props2.height,
@@ -110,7 +112,7 @@ var ReactPlanner = function (_Component) {
       return React.createElement(
         'div',
         { style: _extends({}, wrapperStyle, { height: height }) },
-        React.createElement(Toolbar, _extends({ width: toolbarW, height: toolbarH, state: extractedState }, props)),
+        React.createElement(Toolbar, _extends({ saveFunc: this.props.saveFunc, width: toolbarW, height: toolbarH, state: extractedState }, props)),
         React.createElement(Content, _extends({ width: contentW, height: contentH, state: extractedState }, props, { onWheel: function onWheel(event) {
             return event.preventDefault();
           } })),

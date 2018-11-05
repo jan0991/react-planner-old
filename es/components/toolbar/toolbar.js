@@ -109,25 +109,25 @@ var Toolbar = function (_Component) {
       var alterate = state.get('alterate');
       var alterateColor = alterate ? SharedStyle.MATERIAL_COLORS[500].orange : '';
 
-      var sorter = [{
-        index: 0, condition: allowProjectFileSupport, dom: React.createElement(
-          ToolbarButton,
-          {
-            active: false,
-            tooltip: translator.t('New project'),
-            onClick: function onClick(event) {
-              return confirm(translator.t('Would you want to start a new Project?')) ? projectActions.newProject() : null;
-            } },
-          React.createElement(FaFileO, null)
-        )
-      }, {
-        index: 1, condition: allowProjectFileSupport,
-        dom: React.createElement(ToolbarSaveButton, { state: state })
-      }, {
-        index: 2, condition: allowProjectFileSupport,
-        dom: React.createElement(ToolbarLoadButton, { state: state })
-      }, {
-        index: 3, condition: true,
+      var sorter = [
+      // {
+      //   index: 0, condition: allowProjectFileSupport, dom: <ToolbarButton
+      //     active={false}
+      //     tooltip={translator.t('New project')}
+      //     onClick={event => confirm(translator.t('Would you want to start a new Project?')) ? projectActions.newProject() : null}>
+      //     <FaFileO />
+      //   </ToolbarButton>
+      // },
+      // {
+      //   index: 1, condition: allowProjectFileSupport,
+      //   dom: <ToolbarSaveButton saveFunc={this.props.saveFunc} state={state} />
+      // },
+      // {
+      //   index: 2, condition: allowProjectFileSupport,
+      //   dom: <ToolbarLoadButton state={state} />
+      // },
+      {
+        index: 0, condition: true,
         dom: React.createElement(
           ToolbarButton,
           {
@@ -139,7 +139,7 @@ var Toolbar = function (_Component) {
           React.createElement(FaPlus, null)
         )
       }, {
-        index: 4, condition: true, dom: React.createElement(
+        index: 1, condition: true, dom: React.createElement(
           ToolbarButton,
           {
             active: [MODE_3D_VIEW].includes(mode),
@@ -150,7 +150,7 @@ var Toolbar = function (_Component) {
           React.createElement(Icon3D, null)
         )
       }, {
-        index: 5, condition: true, dom: React.createElement(
+        index: 2, condition: true, dom: React.createElement(
           ToolbarButton,
           {
             active: [MODE_IDLE].includes(mode),
@@ -161,7 +161,7 @@ var Toolbar = function (_Component) {
           [MODE_3D_FIRST_PERSON, MODE_3D_VIEW].includes(mode) ? React.createElement(Icon2D, { style: { color: alterateColor } }) : React.createElement(FaMousePointer, { style: { color: alterateColor } })
         )
       }, {
-        index: 6, condition: true, dom: React.createElement(
+        index: 3, condition: true, dom: React.createElement(
           ToolbarButton,
           {
             active: [MODE_3D_FIRST_PERSON].includes(mode),
@@ -172,7 +172,7 @@ var Toolbar = function (_Component) {
           React.createElement(MdDirectionsRun, null)
         )
       }, {
-        index: 7, condition: true, dom: React.createElement(
+        index: 4, condition: true, dom: React.createElement(
           ToolbarButton,
           {
             active: false,
@@ -183,7 +183,7 @@ var Toolbar = function (_Component) {
           React.createElement(MdUndo, null)
         )
       }, {
-        index: 8, condition: true, dom: React.createElement(
+        index: 5, condition: true, dom: React.createElement(
           ToolbarButton,
           {
             active: [MODE_CONFIGURING_PROJECT].includes(mode),

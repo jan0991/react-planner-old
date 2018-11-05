@@ -5,12 +5,13 @@ import ToolbarButton from './toolbar-button';
 import {browserDownload}  from '../../utils/browser';
 import { Project } from '../../class/export';
 
-export default function ToolbarSaveButton({state}, {translator}) {
+export default function ToolbarSaveButton({state, saveFunc}, {translator}) {
 
   let saveProjectToFile = e => {
     e.preventDefault();
     state = Project.unselectAll( state ).updatedState;
-    browserDownload(state.get('scene').toJS());
+    // browserDownload(state.get('scene').toJS());
+    saveFunc(state.get('scene').toJS())
   };
 
   return (

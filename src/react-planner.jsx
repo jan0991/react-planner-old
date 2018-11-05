@@ -58,6 +58,7 @@ class ReactPlanner extends Component {
   }
 
   render() {
+    console.log(54, this.props)
     let {width, height, state, stateExtractor, ...props} = this.props;
 
     let contentW = width - toolbarW - sidebarW;
@@ -69,7 +70,7 @@ class ReactPlanner extends Component {
 
     return (
       <div style={{...wrapperStyle, height}}>
-        <Toolbar width={toolbarW} height={toolbarH} state={extractedState} {...props} />
+        <Toolbar saveFunc={this.props.saveFunc} width={toolbarW} height={toolbarH} state={extractedState} {...props} />
         <Content width={contentW} height={contentH} state={extractedState} {...props} onWheel={event => event.preventDefault()} />
         <Sidebar width={sidebarW} height={sidebarH} state={extractedState} {...props} />
         <FooterBar width={width} height={footerBarH} state={extractedState} {...props} />

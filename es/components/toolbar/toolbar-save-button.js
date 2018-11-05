@@ -6,14 +6,16 @@ import { browserDownload } from '../../utils/browser';
 import { Project } from '../../class/export';
 
 export default function ToolbarSaveButton(_ref, _ref2) {
-  var state = _ref.state;
+  var state = _ref.state,
+      saveFunc = _ref.saveFunc;
   var translator = _ref2.translator;
 
 
   var saveProjectToFile = function saveProjectToFile(e) {
     e.preventDefault();
     state = Project.unselectAll(state).updatedState;
-    browserDownload(state.get('scene').toJS());
+    // browserDownload(state.get('scene').toJS());
+    saveFunc(state.get('scene').toJS());
   };
 
   return React.createElement(
